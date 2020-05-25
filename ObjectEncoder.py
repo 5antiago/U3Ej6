@@ -28,5 +28,3 @@ class ObjectEncoder(object):
                     auto = class_(**atributos)
                     Elementos.agregarElemeto(auto)
                 return Elementos
-         #No he entendido como realizar la lectura del
-             #diccionario para Guardarlo en un objecto
