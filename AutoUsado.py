@@ -35,13 +35,13 @@ class AutoUsado(auto):
             __class__ = self.__class__.__name__,
             __atributos__ = dict(
                             modelo = self.getmodel(),
-                            PB = self.getpb(),
+                            pb = self.getpb(),
                             color = self.getcolor(),
-                            cantp = self.getcantp(),
+                            cp = self.getcantp(),
                             marca = self.__marca,
                             km = self.__km,
-                            year = self.__year,
-                            patente = self.__patente
+                            y = self.__year,
+                            pat = self.__patente
                             )
                 
         )

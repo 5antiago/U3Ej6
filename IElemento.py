@@ -12,4 +12,8 @@ class Ielemetos (Interface):
         pass
     def menorprecio():
         pass
+    def base(patente):
+        pass
+    def toJSON():
+        pass
     

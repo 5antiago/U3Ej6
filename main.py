@@ -2,10 +2,9 @@ from Elemento import Elementos
 from menu import Menu
 from ObjectEncoder import ObjectEncoder
 if __name__ == "__main__":
-    elementos = Elementos()
     obj = ObjectEncoder()
-    obj.Decoder(obj.Leer("vehiculos.json"))
-
+    elementos = obj.Decoder(obj.Leer("vehiculos.json"))
+    del obj
 
     menu = Menu()
     print(" 1. Insertar vehiculo \n 2. Agregar \n 3. Mostrar \n 4. Modificar Base \n 5. Vehiculo mas economico")

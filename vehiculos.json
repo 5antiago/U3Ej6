@@ -1,0 +1,29 @@
+{
+    "__class__": "Elementos",
+    "Elementos": [
+        {
+            "__class__": "AutoUsado",
+            "__atributos__": {
+                "modelo": "focus",
+                "pb": 15000.0,
+                "color": "rojo",
+                "cp": 5,
+                "marca": "ford",
+                "km": 20000,
+                "y": 2015,
+                "pat": "up987up"
+            }
+        },
+        {
+            "__class__": "AutoNuevo",
+            "__atributos__": {
+                "modelo": "palio",
+                "pb": 15000.0,
+                "color": "negro",
+                "cp": 5,
+                "marca": "Fiat",
+                "version": "full"
+            }
+        }
+    ]
+}

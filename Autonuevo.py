@@ -11,9 +11,11 @@ class AutoNuevo(auto):
     def setmarca(cls, marca):
         cls.marca = marca
 
-    def __init__(self, modelo, pb, color, cp, version):
+    def __init__(self, modelo, pb, color, cp, version, marca):
         super().__init__(modelo, pb, color, cp)
         self.__vesion = version
+        if self.getmarca() == "":
+            self.setmarca(marca)
     def getversion(self):
         return self.__vesion
     def Importe(self):
@@ -28,9 +30,9 @@ class AutoNuevo(auto):
             __class__ = self.__class__.__name__,
             __atributos__ = dict(
                             modelo = self.getmodel(),
-                            PB = self.getpb(),
+                            pb = self.getpb(),
                             color = self.getcolor(),
-                            cantp = self.getcantp(),
+                            cp = self.getcantp(),
                             marca = self.getmarca(), 
                             version = self.__vesion
                             )
