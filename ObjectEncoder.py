@@ -1,5 +1,5 @@
 import json
-from Elemento import Elementos
+from Lista import Lista
 from Autonuevo import AutoNuevo
 from AutoUsado import AutoUsado
 class ObjectEncoder(object):
@@ -17,7 +17,7 @@ class ObjectEncoder(object):
         else:
             class_name = d["__class__"]
             class_=eval(class_name)
-            if class_name == "Elementos":
+            if class_name == "Lista":
                 elements = d["Elementos"]
                 Elementos = class_()
                 for i in range(len(elements)):

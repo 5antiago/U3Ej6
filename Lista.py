@@ -1,6 +1,8 @@
+from zope.interface import implementer, implements
 from Nodo import Nodo
-from AutoUsado import AutoUsado
+from IElemento import Ielemetos
 
+@implementer(Ielemetos)
 class Lista(object):
     __start = None
     __actual = None
@@ -11,13 +13,13 @@ class Lista(object):
         self.__actual = None
         self.__indice = 0
         self.__tope = 0
-    def agregar(self, dato):
+    def agregarElemeto(self, dato):
         nodo = Nodo(dato)
         nodo.setSig(self.__start)
         self.__start = nodo
         self.__actual = nodo
         self.__tope +=1
-    def insertar(self, elemento, pos):
+    def insertarElemento(self, elemento, pos):
         aux = self.__start
         i = 0
         elemento = Nodo(elemento)
@@ -30,7 +32,7 @@ class Lista(object):
             elemento.setSig(aux.getSig())
             aux.setSig(elemento)
             self.__tope +=1
-    def muestra(self, pos):
+    def MostrarElemento(self, pos):
         aux = self.__start
         i = 0
         while i<pos and aux != None:
@@ -40,6 +42,31 @@ class Lista(object):
             raise IndexError
         else:
             return aux.getDato()
+    def Mostrar(self):
+        aux = self.__start
+        cadena = ""
+        while aux!=None:
+            cadena += "\n-Modelo: {} \n \t -Puertas: {} \n \t -Precio: {}".format(aux.getDato().getmodel(), aux.getDato().getcantp(),aux.getDato().Importe())
+            aux = aux.getSig()
+        return cadena 
+    def base(self, patente):
+        aux = self.__start 
+        while aux!=None and aux.getDato().getpatente()!=patente:
+            aux = aux.getSig()
+        if aux == None:
+            return -1
+        else:
+            return aux.getDato()
+    def menorprecio(self):
+        Aux=self.__start
+        auto = None
+        minimo = 999999999
+        while Aux != None:
+            if minimo > Aux.getDato().getpb():
+                minimo = Aux.getDato().getpb()
+                auto = Aux.getDato()
+                Aux = Aux.getSig()
+        return auto
     def __next__(self):
         if self.__indice == self.__tope:
             self.__actual = self.__start
@@ -50,6 +77,11 @@ class Lista(object):
             dato = self.__actual.getDato()
             self.__actual = self.__actual.getSig()
             return dato
+    def toJSON(self):
+        return dict(
+            __class__ = self.__class__.__name__, 
+            Elementos=[elemento.toJSON() for elemento in self]
+        )
     def __iter__(self):
         return self
     def __len__(self):

@@ -10,7 +10,11 @@ class Menu(object):
         self.__switcher = { 1: self.Insert, 2: self.Agregar, 3: self.Mostrarpos, 4:self.Modifbase,
                             5:self.vehiculoeconomico, 6:self.mostrar, 7:self.guardar}
     def opcion(self, op, elementos):
-        self.__switcher.get(op, lambda a: print("Opcion Incorrecta"))(Ielemetos(elementos))
+        a = self.__switcher.get(op, lambda a: print("Opcion Incorrecta"))
+        if a == self.Insert or a == self.Agregar or a == self.Mostrarpos:
+            a(Ielemetos(elementos))
+        else:
+            a(elementos)
 
     def Insert(self, elementos):
         print("Insertar Vehiculo")
@@ -57,7 +61,7 @@ class Menu(object):
         print("Vehiculo mas economico")
         print(elementos.menorprecio())
     def mostrar(self, elementos):
-        print("Mostrando todos los vehiculos")
+        print("Mostrando todos los vehiculos") #listo
         print(elementos.Mostrar())
     def guardar(self, elementos):
         print("Guardando vehiculos")

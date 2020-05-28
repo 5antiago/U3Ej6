@@ -2,18 +2,9 @@ from zope.interface import Interface
 
 class Ielemetos (Interface):
 
-    def insertarElemento(elemento, pos):
+    def agregarElemeto(dato):
         pass
-    def agregarElemeto(elemento):
+    def insertarElemento(elemento, pos):
         pass
     def MostrarElemento(pos):
         pass
-    def Mostrar():
-        pass
-    def menorprecio():
-        pass
-    def base(patente):
-        pass
-    def toJSON():
-        pass
-    
